@@ -1,4 +1,4 @@
-# 🤖 VAMPARINA V1 
+# 🤖 GIDIMORE BOT
 
 This is a WhatsApp bot built using the Baileys library for group management, including features like tagging all members, muting/unmuting, and many more. It's designed to help admins efficiently manage WhatsApp groups.
 
@@ -9,8 +9,8 @@ This is a WhatsApp bot built using the Baileys library for group management, inc
 </div> 
 
 <div align="center"> 
-  <a href="https://youtube.com/@mr_unique_hacker"> 
-    <img src="https://github.com/arnold6001/VAMPARINA-V1/blob/main/assets/IMG-20250708-WA0029.jpg"alt="VAMPARINA V1" height="300"> 
+  <a href="https://youtube.com/Kylan Dylan"> 
+    <img src="https://github.com/arnold6001/GIDIMORE-MD/blob/main/assets/IMG-20250708-WA0029.jpg"alt="GIDIMORE BOT" height="300"> 
   </a> 
 </div>
 
@@ -23,7 +23,7 @@ This is a WhatsApp bot built using the Baileys library for group management, inc
 Click the button below to fork the Knight Bot repository to your GitHub account:
 
 <div align="center">
-  <a href="https://github.com/arnold6001/Vamparinav1/fork">
+  <a href="https://github.com/arnold6001/GIDIMORE-MD/fork">
     <img src="https://img.shields.io/badge/Fork-Repository-blue?style=for-the-badge" alt="Fork the repository"/>
   </a>
 </div>
@@ -41,7 +41,7 @@ Deploy the bot and easily connect it to your WhatsApp account by pair code. Clic
 </div>
 
 <div align="center">
-  <a href="https://knight-bot-paircode.onrender.com" target="_blank">
+  <a href="https://arnoldchirchir.onrender.com" target="_blank">
     <img src="https://img.shields.io/badge/GET%20PAIR%20CODE-Easy%20Method-ff4d4d?style=for-the-badge" alt="Generate Pair Code"/>
   </a>
 </div>
@@ -130,10 +130,10 @@ If you like this project, please give it a [⭐️ star on GitHub](https://githu
 
 ## Credits
 
-- [Professor](https://github.com/mruniquehacker)
-- [Baileys](https://github.com/adiwajshing/Baileys)
-- [TechGod143](https://github.com/TechGod143) for pair code
-- [Dgxeon](https://github.com/Dgxeon) for pair code
+- [Professor](https://github.com/arnold6001)
+- [Baileys](https://github.com/arnold6001/Baileys)
+- [TechGod143](https://github.com/arnold6001) for pair code
+- [Dgxeon](https://github.com/arnold6001) for pair code
 
 ---
 
