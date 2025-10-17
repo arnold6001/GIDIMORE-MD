@@ -248,8 +248,8 @@ async function startXeonBotInc() {
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363161513685998@newsletter',
-                        newsletterName: 'VAMPARINA V1',
+                        newsletterJid: '0029VbAwhrYChq6JPHOMOT0L@newsletter',
+                        newsletterName: 'VAMPARINA Official Channel',
                         serverMessageId: -1
                     }
                 }
