@@ -12,7 +12,7 @@ const ffmpeg = require('fluent-ffmpeg');
 const { isSudo } = require('./lib/index');
 const { autotypingCommand, isAutotypingEnabled, handleAutotypingForMessage, handleAutotypingForCommand, showTypingAfterCommand } = require('./commands/autotyping');
 const { autoreadCommand, isAutoreadEnabled, handleAutoread } = require('./commands/autoread');
-
+const AutoReply = require('./commands/autoreply');
 // Command imports
 const tagAllCommand = require('./commands/tagall');
 const helpCommand = require('./commands/help');
