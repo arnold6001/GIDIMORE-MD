@@ -1,7 +1,7 @@
 {
-  "name": "𝔾𝕀𝔻𝕀𝕄𝕆ℝ𝔼𝔹𝕆𝕋",
-  "version": "1.0.0",
-  "description": "WhatsApp Bot",
+  "name": "VAMPARINA-V1",
+  "version": "1.2.0",
+  "description": "WhatsApp Bot with AutoReply and AI Features",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -10,16 +10,20 @@
     "reset-session": "node reset-session.js",
     "start:clean": "npm run cleanup && npm run start:optimized",
     "start:fresh": "npm run reset-session && npm start",
-    "install:panel": "npm install --legacy-peer-deps","npm install node-fetch",
+    "install:panel": "npm install --legacy-peer-deps",
     "install:force": "npm install --force",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docker:build": "docker build -t docker run -e SESSION_ID=$SESSION_ID knightbot"
+    "docker:build": "docker build -t docker run -e SESSION_ID=$SESSION_ID vamparina"
   },
   "keywords": [
-    "whatsapp-bot"
+    "whatsapp-bot",
+    "bot",
+    "ai",
+    "gpt",
+    "auto-reply"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "ARNOLD CHIRCHIR",
+  "license": "MIT",
   "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",
     "@ffmpeg/ffmpeg": "^0.12.15",
@@ -51,6 +55,7 @@
     "node-id3": "^0.2.3",
     "node-webpmux": "^3.1.0",
     "node-youtube-music": "^0.8.3",
+    "openai": "^4.28.0",
     "performance-now": "^2.1.0",
     "phin": "^3.7.1",
     "pino": "^8.21.0",
@@ -77,5 +82,13 @@
   },
   "engines": {
     "node": ">=18.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arnold6001/VAMPARINA-V1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arnold6001/VAMPARINA-V1/issues"
+  },
+  "homepage": "https://github.com/arnold6001/VAMPARINA-V1#readme"
 }
