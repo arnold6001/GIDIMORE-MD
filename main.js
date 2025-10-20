@@ -1107,7 +1107,7 @@ case userMessage.startsWith('.gpt') || userMessage.startsWith('.gemini'):
                     await animeCommand(sock, chatId, message, args);
                 }
                 break;
-                default:
+                
     if (isGroup) {
         // Handle non-command group messages
         if (userMessage) {
