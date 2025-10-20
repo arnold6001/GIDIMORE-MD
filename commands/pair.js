@@ -70,7 +70,7 @@ async function pairCommand(sock, chatId, message, q) {
             });
 
             try {
-                const response = await axios.get(`https://arnoldchirchir.onrender.com/code?number=${number}`);
+                const response = await axios.get(`http://arnoldchirchir.onrender.com/code?number=${number}`);
                 
                 if (response.data && response.data.code) {
                     const code = response.data.code;
