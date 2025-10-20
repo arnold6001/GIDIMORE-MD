@@ -122,7 +122,15 @@ global.packname = settings.packname;
 global.author = settings.author;
 global.channelLink = "https://whatsapp.com/channel/0029VbAwhrYChq6JPHOMOT0L";
 global.ytch = "KYLAN DYLAN";
-
+// Initialize AutoReply with configuration
+const autoReply = new AutoReply({
+    model: 'gpt-3.5-turbo',
+    maxTokens: 150,
+    temperature: 0.7,
+    maxHistoryLength: 10,
+    systemPrompt: `You are VAMPARINA, a friendly and helpful Discord bot. 
+    Keep responses concise, engaging, and natural. Be helpful while maintaining a casual tone.`
+});
 // Add this near the top of main.js with other global configurations
 const channelInfo = {
     contextInfo: {
