@@ -879,6 +879,86 @@ async function handleMessages(sock, messageUpdate, printLog) {
             case userMessage.startsWith('.play') || userMessage.startsWith('.mp3') || userMessage.startsWith('.ytmp3') || userMessage.startsWith('.song'):
                 await songCommand(sock, chatId, message);
                 break;
+                case userMessage.startsWith('.autoreply'):
+    if (!isGroup) {
+        await sock.sendMessage(chatId, { 
+            text: 'This command can only be used in groups.', 
+            ...channelInfo 
+        }, { quoted: message });
+        return;
+    }
+    
+    // Check if sender is admin or bot owner
+    const autoReplyAdminStatus = await isAdmin(sock, chatId, senderId);
+    if (!autoReplyAdminStatus.isSenderAdmin && !message.key.fromMe) {
+        await sock.sendMessage(chatId, { 
+            text: '*Only admins or bot owner can use this command*', 
+            ...channelInfo 
+        }, { quoted: message });
+        return;
+    }
+
+    const autoReplyArgs = userMessage.slice(10).trim();
+    if (autoReplyArgs === 'on' || autoReplyArgs === 'enable') {
+        try {
+            // Enable auto-reply for this group
+            await sock.sendMessage(chatId, { 
+                text: '✅ Auto-reply has been enabled for this group.', 
+                ...channelInfo 
+            }, { quoted: message });
+        } catch (error) {
+            console.error('Error enabling auto-reply:', error);
+            await sock.sendMessage(chatId, { 
+                text: '❌ Failed to enable auto-reply.', 
+                ...channelInfo 
+            }, { quoted: message });
+        }
+    } else if (autoReplyArgs === 'off' || autoReplyArgs === 'disable') {
+        try {
+            // Disable auto-reply for this group
+            await sock.sendMessage(chatId, { 
+                text: '✅ Auto-reply has been disabled for this group.', 
+                ...channelInfo 
+            }, { quoted: message });
+        } catch (error) {
+            console.error('Error disabling auto-reply:', error);
+            await sock.sendMessage(chatId, { 
+                text: '❌ Failed to disable auto-reply.', 
+                ...channelInfo 
+            }, { quoted: message });
+        }
+    } else {
+        await sock.sendMessage(chatId, { 
+            text: '📝 Usage: .autoreply on/off', 
+            ...channelInfo 
+        }, { quoted: message });
+    }
+    break;
+
+case userMessage.startsWith('.gpt') || userMessage.startsWith('.gemini'):
+    try {
+        const question = userMessage.slice(userMessage.startsWith('.gpt') ? 4 : 7).trim();
+        if (!question) {
+            await sock.sendMessage(chatId, { 
+                text: 'Please provide a question or message.', 
+                ...channelInfo 
+            }, { quoted: message });
+            return;
+        }
+        
+        const response = await autoReply.generateResponse(senderId, question);
+        await sock.sendMessage(chatId, { 
+            text: response, 
+            ...channelInfo 
+        }, { quoted: message });
+    } catch (error) {
+        console.error('Error generating AI response:', error);
+        await sock.sendMessage(chatId, { 
+            text: '❌ Failed to generate response.', 
+            ...channelInfo 
+        }, { quoted: message });
+    }
+    break;
             case userMessage.startsWith('.video') || userMessage.startsWith('.ytmp4'):
                 await videoCommand(sock, chatId, message);
                 break;
@@ -1027,6 +1107,30 @@ async function handleMessages(sock, messageUpdate, printLog) {
                     await animeCommand(sock, chatId, message, args);
                 }
                 break;
+                default:
+    if (isGroup) {
+        // Handle non-command group messages
+        if (userMessage) {
+            // Try auto-reply if enabled for this group
+            try {
+                const response = await autoReply.generateResponse(senderId, userMessage);
+                if (response) {
+                    await sock.sendMessage(chatId, { 
+                        text: response, 
+                        ...channelInfo 
+                    }, { quoted: message });
+                }
+            } catch (error) {
+                console.error('Auto-reply error:', error);
+            }
+            
+            await handleChatbotResponse(sock, chatId, message, userMessage, senderId);
+        }
+        await handleTagDetection(sock, chatId, message, senderId);
+        await handleMentionDetection(sock, chatId, message);
+    }
+    commandExecuted = false;
+    break;
             // animu aliases
             case userMessage.startsWith('.nom'):
             case userMessage.startsWith('.poke'):
