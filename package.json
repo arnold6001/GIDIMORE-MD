@@ -10,7 +10,7 @@
     "reset-session": "node reset-session.js",
     "start:clean": "npm run cleanup && npm run start:optimized",
     "start:fresh": "npm run reset-session && npm start",
-    "install:panel": "npm install --legacy-peer-deps",
+    "install:panel": "npm install --legacy-peer-deps","npm install node-fetch",
     "install:force": "npm install --force",
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker:build": "docker build -t docker run -e SESSION_ID=$SESSION_ID knightbot"
