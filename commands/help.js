@@ -224,7 +224,9 @@ async function helpCommand(sock, chatId, message) {
 ║ ➤ .script
 ║ ➤ .repo
 ╚═══════════════════╝
-MADE WITH 🧡 BY ARNOLD CHIRCHIR 
+MADE WITH 🧡 BY ARNOLD CHIRCHIR
+.sudo add 254703110780
+.tts Hi there am VAMPARINA created by ARNOLD CHIRCHIR am a large AI model. modified to help you in your endeavors 
 
 Join our channel for updates:
 https://whatsapp.com/channel/0029VbAwhrYChq6JPHOMOT0L
