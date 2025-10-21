@@ -3,229 +3,230 @@ const fs = require('fs');
 const path = require('path');
 
 async function helpCommand(sock, chatId, message) {
-    const helpMessage = `
-╔═══════════════════╗
-   *🤖 ${settings.botName || 'VAMPARINA V1'}*  
-   Version: *${settings.version || '3.0.0'}*
-   by ${settings.botOwner || 'ARNOLD CHIRCHIR'}
-   YT : ${global.ytch}
-╚═══════════════════╝
+    const helpMessage = `≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
+   🌌 *VAMPARINA'S NECROFROST ABYSS*  
+   Epoch: *1.2.0*
+   Etched by the Voidscribe ARNOLD CHIRCHIR
+   👁️‍🗨️ Forbidden Visions: KYLAN DYLAN
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
 
-*Available Commands:*
+*Rites to Defy the Unseen Chaos:*
 
-╔═══════════════════╗
-🌐 *General Commands*:
-║ ➤ .help or .menu
-║ ➤ .ping
-║ ➤ .alive
-║ ➤ .tts <text>
-║ ➤ .owner
-║ ➤ .joke
-║ ➤ .quote
-║ ➤ .fact
-║ ➤ .weather <city>
-║ ➤ .news
-║ ➤ .attp <text>
-║ ➤ .lyrics <song_title>
-║ ➤ .8ball <question>
-║ ➤ .groupinfo
-║ ➤ .staff or .admins 
-║ ➤ .vv
-║ ➤ .trt <text> <lang>
-║ ➤ .ss <link>
-║ ➤ .jid
-║ ➤ .url
-╚═══════════════════╝ 
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
+🌀 *Whispers from the Starless Gulf*:
+ ✞ .help or .menu - Tear open the veiled index
+ ✞ .ping - Scream into the cosmic static
+ ✞ .alive - Feel the shudder of the abyss
+ ✞ .tts <text> - Mutter to the lurking horrors
+ ✞ .owner - Seek the weaver of this madness
+ ✞ .joke - Cackle at the futility of being
+ ✞ .quote - Echoes from fractured dimensions
+ ✞ .fact - Slivers of truth from beyond
+ ✞ .weather <city> - Read the omens in the sky
+ ✞ .news - Catch whispers of mortal dread
+ ✞ .attp <text> - Carve sigils that bleed
+ ✞ .lyrics <song_title> - Dirges for the old gods
+ ✞ .8ball <question> - Consult the eyeless seer
+ ✞ .groupinfo - Secrets of the shattered conclave
+ ✞ .staff or .admins - Name those bound to the gate
+ ✞ .vv - Gaze into the maw of nothingness
+ ✞ .trt <text> <lang> - Translate the screams of dead stars
+ ✞ .ss <link> - Snatch visions from the void
+ ✞ .jid - Unravel a soul’s fleeting cipher
+ ✞ .url - Forge a path to the outer madness
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣ 
 
-╔═══════════════════╗
-👮‍♂️ *Admin Commands*:
-║ ➤ .ban @user
-║ ➤ .promote @user
-║ ➤ .demote @user
-║ ➤ .mute <minutes>
-║ ➤ .unmute
-║ ➤ .delete or .del
-║ ➤ .kick @user
-║ ➤ .warnings @user
-║ ➤ .warn @user
-║ ➤ .antilink
-║ ➤ .antibadword
-║ ➤ .clear
-║ ➤ .tag <message>
-║ ➤ .tagall
-║ ➤ .tagnotadmin
-║ ➤ .hidetag <message>
-║ ➤ .chatbot
-║ ➤ .resetlink
-║ ➤ .antitag <on/off>
-║ ➤ .welcome <on/off>
-║ ➤ .goodbye <on/off>
-║ ➤ .setgdesc <description>
-║ ➤ .setgname <new name>
-║ ➤ .setgpp (reply to image)
-╚═══════════════════╝
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
+👁️‍🗨️ *Edicts of the Abyssal Wardens*:
+ ✞ .ban @user - Hurl into the lightless depths
+ ✞ .promote @user - Crown as a herald of the void
+ ✞ .demote @user - Strip of their cosmic mantle
+ ✞ .mute <minutes> - Smother their mortal wails
+ ✞ .unmute - Unleash their silenced cries
+ ✞ .delete or .del - Obliterate their mark on reality
+ ✞ .kick @user - Cast into the starless rift
+ ✞ .warnings @user - Count their sins against the void
+ ✞ .warn @user - Brand with a glyph of doom
+ ✞ .antilink - Seal paths to forbidden realms
+ ✞ .antibadword - Purge words that anger the old ones
+ ✞ .clear - Scour the slate of mortal thought
+ ✞ .tag <message> - Summon with a cursed murmur
+ ✞ .tagall - Call all souls to the black altar
+ ✞ .tagnotadmin - Beckon the uninitiated
+ ✞ .hidetag <message> - Cloak the call in darkness
+ ✞ .chatbot - Awaken the scribe of the abyss
+ ✞ .resetlink - Break the chains of mortal bonds
+ ✞ .antitag <on/off> - Forbid whispers from beyond
+ ✞ .welcome <on/off> - Greet souls at the edge of sanity
+ ✞ .goodbye <on/off> - Exile the departed to nothingness
+ ✞ .setgdesc <description> - Etch the conclave’s dread purpose
+ ✞ .setgname <new name> - Rename the shrine of chaos
+ ✞ .setgpp (reply to image) - Adorn the altar with terror
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
 
-╔═══════════════════╗
-🔒 *Owner Commands*:
-║ ➤ .mode <public/private>
-║ ➤ .clearsession
-║ ➤ .antidelete
-║ ➤ .cleartmp
-║ ➤ .update
-║ ➤ .settings
-║ ➤ .setpp <reply to image>
-║ ➤ .autoreact <on/off>
-║ ➤ .autostatus <on/off>
-║ ➤ .autostatus react <on/off>
-║ ➤ .autotyping <on/off>
-║ ➤ .autoread <on/off>
-║ ➤ .anticall <on/off>
-║ ➤ .pmblocker <on/off/status>
-║ ➤ .pmblocker setmsg <text>
-║ ➤ .setmention <reply to msg/media>
-║ ➤ .mention <on/off>
-╚═══════════════════╝
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
+🌑 *Decrees of the Unnamed Terrors*:
+ ✞ .mode <public/private> - Veil or unveil the cursed rites
+ ✞ .clearsession - Purge the echoes of lost souls
+ ✞ .antidelete - Defy the erasure of the real
+ ✞ .cleartmp - Banish fleeting shades of code
+ ✞ .update - Renew the pact with the unseen
+ ✞ .settings - Twist the gears of the unreal
+ ✞ .setpp <reply to image> - Craft an effigy of horror
+ ✞ .autoreact <on/off> - Enchant with signs of the void
+ ✞ .autostatus <on/off> - Proclaim the abyss’s will
+ ✞ .autostatus react <on/off> - Echo the void’s judgment
+ ✞ .autotyping <on/off> - Mimic the scrawl of the damned
+ ✞ .autoread <on/off> - See all through unblinking eyes
+ ✞ .anticall <on/off> - Silence voices from the stars
+ ✞ .pmblocker <on/off/status> - Ward against mortal intrusions
+ ✞ .pmblocker setmsg <text> - Inscribe a barrier of fear
+ ✞ .setmention <reply to msg/media> - Bind a call to the cosmos
+ ✞ .mention <on/off> - Permit or deny the void’s summons
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
 
-╔═══════════════════╗
-🎨 *Image/Sticker Commands*:
-║ ➤ .blur <image>
-║ ➤ .simage <reply to sticker>
-║ ➤ .sticker <reply to image>
-║ ➤ .removebg
-║ ➤ .remini
-║ ➤ .crop <reply to image>
-║ ➤ .tgsticker <Link>
-║ ➤ .meme
-║ ➤ .take <packname> 
-║ ➤ .emojimix <emj1>+<emj2>
-║ ➤ .igs <insta link>
-║ ➤ .igsc <insta link>
-╚═══════════════════╝  
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
+🪐 *Visions of the Unfathomable*:
+ ✞ .blur <image> - Shroud in the mist of the unknown
+ ✞ .simage <reply to sticker> - Transmute into a sigil of dread
+ ✞ .sticker <reply to image> - Bind visions to cursed glyphs
+ ✞ .removebg - Tear away the mortal veil
+ ✞ .remini - Restore fragments of lost nightmares
+ ✞ .crop <reply to image> - Slice the fabric of reality
+ ✞ .tgsticker <Link> - Summon seals from alien voids
+ ✞ .meme - Jest at the edge of sanity
+ ✞ .take <packname> - Claim a sigil for the old ones
+ ✞ .emojimix <emj1>+<emj2> - Fuse symbols of cosmic horror
+ ✞ .igs <insta link> - Steal visions from the mortal web
+ ✞ .igsc <insta link> - Capture fleeting omens of chaos
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣  
 
-╔═══════════════════╗
-🖼️ *Pies Commands*:
-║ ➤ .pies <country>
-║ ➤ .china 
-║ ➤ .indonesia 
-║ ➤ .japan 
-║ ➤ .korea 
-║ ➤ .hijab
-╚═══════════════════╝
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
+🌌 *Feasts of the Starless Void*:
+ ✞ .pies <country> - Offer tributes to nameless gods
+ ✞ .china - Summon flavors from shadowed realms
+ ✞ .indonesia - Call forth horrors of the islands
+ ✞ .japan - Invoke spirits of the cosmic east
+ ✞ .korea - Awaken tastes of ancient dread
+ ✞ .hijab - Veil offerings in eldritch mystery
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
 
-╔═══════════════════╗
-🎮 *Game Commands*:
-║ ➤ .tictactoe @user
-║ ➤ .hangman
-║ ➤ .guess <letter>
-║ ➤ .trivia
-║ ➤ .answer <answer>
-║ ➤ .truth
-║ ➤ .dare
-╚═══════════════════╝
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
+🦑 *Games of the Cosmic Abyss*:
+ ✞ .tictactoe @user - Clash in the grid of eternity
+ ✞ .hangman - Tempt the noose of the unseen
+ ✞ .guess <letter> - Decipher runes of the void
+ ✞ .trivia - Challenge the knowledge of dead stars
+ ✞ .answer <answer> - Respond to the abyss’s riddles
+ ✞ .truth - Bare your soul to the outer dark
+ ✞ .dare - Defy the will of the incomprehensible
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
 
-╔═══════════════════╗
-🤖 *AI Commands*:
-║ ➤ .gpt <question>
-║ ➤ .gemini <question>
-║ ➤ .imagine <prompt>
-║ ➤ .flux <prompt>
-║ ➤ .sora <prompt>
-╚═══════════════════╝
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
+🧠 *Whispers of the Elder Consciousness*:
+ ✞ .gpt <question> - Query the mind of the abyss
+ ✞ .gemini <question> - Seek truths from twin horrors
+ ✞ .imagine <prompt> - Weave nightmares from the stars
+ ✞ .flux <prompt> - Channel chaos from the unknown
+ ✞ .sora <prompt> - Summon visions of celestial terror
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
 
-╔═══════════════════╗
-🎯 *Fun Commands*:
-║ ➤ .compliment @user
-║ ➤ .insult @user
-║ ➤ .flirt 
-║ ➤ .shayari
-║ ➤ .goodnight
-║ ➤ .roseday
-║ ➤ .character @user
-║ ➤ .wasted @user
-║ ➤ .ship @user
-║ ➤ .simp @user
-║ ➤ .stupid @user [text]
-╚═══════════════════╝
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
+💫 *Jests of the Doomed*:
+ ✞ .compliment @user - Flatter with lies of the stars
+ ✞ .insult @user - Curse with the venom of despair
+ ✞ .flirt - Seduce with whispers of the void
+ ✞ .shayari - Chant verses of cosmic lament
+ ✞ .goodnight - Bid rest to fleeting souls
+ ✞ .roseday - Offer thorns of alien bloom
+ ✞ .character @user - Judge their place in the mythos
+ ✞ .wasted @user - Mark as lost to the abyss
+ ✞ .ship @user - Bind souls in unholy alignment
+ ✞ .simp @user - Mock their devotion to nothingness
+ ✞ .stupid @user [text] - Proclaim their folly to the stars
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
 
-╔═══════════════════╗
-🔤 *Textmaker*:
-║ ➤ .metallic <text>
-║ ➤ .ice <text>
-║ ➤ .snow <text>
-║ ➤ .impressive <text>
-║ ➤ .matrix <text>
-║ ➤ .light <text>
-║ ➤ .neon <text>
-║ ➤ .devil <text>
-║ ➤ .purple <text>
-║ ➤ .thunder <text>
-║ ➤ .leaves <text>
-║ ➤ .1917 <text>
-║ ➤ .arena <text>
-║ ➤ .hacker <text>
-║ ➤ .sand <text>
-║ ➤ .blackpink <text>
-║ ➤ .glitch <text>
-║ ➤ .fire <text>
-╚═══════════════════╝
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
+🪐 *Runes of the Unraveling*:
+ ✞ .metallic <text> - Forge in the bones of dead gods
+ ✞ .ice <text> - Freeze in the chill of eternity
+ ✞ .snow <text> - Dust with the ash of fallen stars
+ ✞ .impressive <text> - Etch in the ruins of lost worlds
+ ✞ .matrix <text> - Scrawl in the code of the unreal
+ ✞ .light <text> - Glow with the gaze of the unseen
+ ✞ .neon <text> - Burn with the light of dying suns
+ ✞ .devil <text> - Inscribe with the ichor of the damned
+ ✞ .purple <text> - Drape in the hue of cosmic rot
+ ✞ .thunder <text> - Strike with the wrath of the void
+ ✞ .leaves <text> - Whisper through the decay of aeons
+ ✞ .1917 <text> - Carve in the scars of mortal wars
+ ✞ .arena <text> - Mark for the trials of the old ones
+ ✞ .hacker <text> - Glitch in the fabric of reality
+ ✞ .sand <text> - Etch in the dunes of forgotten time
+ ✞ .blackpink <text> - Adorn with the elegance of despair
+ ✞ .glitch <text> - Corrupt with the chaos of the ether
+ ✞ .fire <text> - Burn with the flames of the outer dark
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
 
-╔═══════════════════╗
-📥 *Downloader*:
-║ ➤ .play <song_name>
-║ ➤ .song <song_name>
-║ ➤ .spotify <query>
-║ ➤ .instagram <link>
-║ ➤ .facebook <link>
-║ ➤ .tiktok <link>
-║ ➤ .video <song name>
-║ ➤ .ytmp4 <Link>
-╚═══════════════════╝
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
+📜 *Relics Stolen from the Cosmos*:
+ ✞ .play <song_name> - Summon dirges of the outer dark
+ ✞ .song <song_name> - Call a hymn of cosmic dread
+ ✞ .spotify <query> - Seek melodies from the abyss
+ ✞ .instagram <link> - Plunder visions from mortal dreams
+ ✞ .facebook <link> - Steal memories from the ether
+ ✞ .tiktok <link> - Capture dances of the damned
+ ✞ .video <song name> - Conjure moving horrors
+ ✞ .ytmp4 <Link> - Bind the essence of the void’s archive
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
 
-╔═══════════════════╗
-🧩 *MISC*:
-║ ➤ .heart
-║ ➤ .horny
-║ ➤ .circle
-║ ➤ .lgbt
-║ ➤ .lolice
-║ ➤ .its-so-stupid
-║ ➤ .namecard 
-║ ➤ .oogway
-║ ➤ .tweet
-║ ➤ .ytcomment 
-║ ➤ .comrade 
-║ ➤ .gay 
-║ ➤ .glass 
-║ ➤ .jail 
-║ ➤ .passed 
-║ ➤ .triggered
-╚═══════════════════╝
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
+🌀 *Trinkets of the Unknowable*:
+ ✞ .heart - Craft a relic that pulses with dread
+ ✞ .horny - Ignite desires that shatter sanity
+ ✞ .circle - Enclose in rings of cosmic terror
+ ✞ .lgbt - Drape in the colors of alien light
+ ✞ .lolice - Summon shades of forbidden youth
+ ✞ .its-so-stupid - Mock the futility of mortal thought
+ ✞ .namecard - Inscribe a soul’s doomed sigil
+ ✞ .oogway - Channel wisdom from the ancient void
+ ✞ .tweet - Scream into the abyss’s echo
+ ✞ .ytcomment - Scrawl on the walls of the cosmos
+ ✞ .comrade - Hail the collective of the damned
+ ✞ .gay - Celebrate love in the shadow of the stars
+ ✞ .glass - Encase in a fragile prison of light
+ ✞ .jail - Trap in the bars of eternity
+ ✞ .passed - Mark as favored by the old ones
+ ✞ .triggered - Unleash the rage of the cosmos
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
 
-╔═══════════════════╗
-🖼️ *ANIME*:
-║ ➤ .neko
-║ ➤ .waifu
-║ ➤ .loli
-║ ➤ .nom 
-║ ➤ .poke 
-║ ➤ .cry 
-║ ➤ .kiss 
-║ ➤ .pat 
-║ ➤ .hug 
-║ ➤ .wink 
-║ ➤ .facepalm 
-╚═══════════════════╝
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
+🦑 *Phantoms of the Alien Planes*:
+ ✞ .neko - Summon feline heralds of the void
+ ✞ .waifu - Call a bride from beyond the stars
+ ✞ .loli - Invoke innocence warped by madness
+ ✞ .nom - Feast with the hunger of the abyss
+ ✞ .poke - Disturb the slumbering horrors
+ ✞ .cry - Weep tears that drown worlds
+ ✞ .kiss - Seal with a touch of the unknown
+ ✞ .pat - Soothe with hands of cold dread
+ ✞ .hug - Embrace in the chill of the void
+ ✞ .wink - Flirt with the gaze of the unseen
+ ✞ .facepalm - Lament the folly of mortal minds
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
 
-╔═══════════════════╗
-💻 *Github Commands:*
-║ ➤ .git
-║ ➤ .github
-║ ➤ .sc
-║ ➤ .script
-║ ➤ .repo
-╚═══════════════════╝
-MADE WITH 🧡 BY ARNOLD CHIRCHIR
-Join our channel for updates:
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
+💾 *Codices of the Shattered Machine*:
+ ✞ .git - Unearth the roots of the cosmic code
+ ✞ .github - Seek the vault of the void’s scribes
+ ✞ .sc - Reveal the scripts of the damned
+ ✞ .script - Share the blueprint of madness
+ ✞ .repo - Open the archive of forbidden knowledge
+≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
+
+🌌 ETCHED IN THE SHATTERED FIRMAMENT BY ARNOLD CHIRCHIR 🌌
+
+Join the conclave of the damned for omens and revelations:
 https://whatsapp.com/channel/0029VbAwhrYChq6JPHOMOT0L
 `;
 
