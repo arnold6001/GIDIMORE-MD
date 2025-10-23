@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 async function helpCommand(sock, chatId, message) {
-    const helpMessage = ````≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
+    const helpMessage = `≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣≣
    🌌 *VAMPARINA'S NECROFROST ABYSS*  
    Epoch: *1.2.0*
    Etched by the Voidscribe ARNOLD CHIRCHIR
@@ -228,7 +228,7 @@ async function helpCommand(sock, chatId, message) {
 
 Join the conclave of the damned for omens and revelations:
 https://whatsapp.com/channel/0029VbAwhrYChq6JPHOMOT0L
-````;
+`;
 
     try {
         const imagePath = path.join(__dirname, '../assets/bot_image.jpg');
