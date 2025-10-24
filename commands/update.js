@@ -25,6 +25,9 @@ async function hasGitRepo() {
 }
 
 async function updateViaGit() {
+    // Ensure the remote is set to the specified GitHub repo
+    await run('git remote set-url origin https://github.com/arnold6001/VAMPARINA-V1.git');
+    
     const oldRev = (await run('git rev-parse HEAD').catch(() => 'unknown')).trim();
     await run('git fetch --all --prune');
     const newRev = (await run('git rev-parse origin/main')).trim();
@@ -213,7 +216,7 @@ async function updateCommand(sock, chatId, message, senderIsSudo, zipOverride) {
             const v = require('../settings').version || '';
             await sock.sendMessage(chatId, { text: `✅ Update done. Restarting…` }, { quoted: message });
         } catch {
-            await sock.sendMessage(chatId, { text: '✅ Restared Successfully\n Type .ping to check latest version.' }, { quoted: message });
+            await sock.sendMessage(chatId, { text: '✅ Restarted Successfully\n Type .ping to check latest version.' }, { quoted: message });
         }
         await restartProcess(sock, chatId, message);
     } catch (err) {
@@ -223,5 +226,3 @@ async function updateCommand(sock, chatId, message, senderIsSudo, zipOverride) {
 }
 
 module.exports = updateCommand;
-
-
